@@ -1,9 +1,9 @@
-const material_model = require('./material_model');
+const machining_model = require('./machining_model');
 
 
 // HELPERS
 
-const material_data = (req) => {
+const machining_data = (req) => {
     let data = {
         name: req.body.name,
         min_density: req.body.min_density,
@@ -20,15 +20,15 @@ const material_data = (req) => {
 
 // CREATE
 
-const api_post_material = (req, res, next) => {
-    console.log('api_post_material');
-    let data = material_data(req);
+const api_post_machining = (req, res, next) => {
+    console.log('api_post_machining');
+    let data = machining_data(req);
 
-    let new_material = material_model(data);
+    let new_machining = machining_model(data);
 
-    new_material.save().then(() => {
-        console.log(new_material);
-        res.send(JSON.stringify(new_material));
+    new_machining.save().then(() => {
+        console.log(new_machining);
+        res.send(JSON.stringify(new_machining));
     }).catch(err => {
         res.status(500);
         res.send(err.errmsg);
@@ -39,13 +39,13 @@ const api_post_material = (req, res, next) => {
 
 // READ
 
-const api_get_materials = (req, res, next) => {
-    console.log('api_get_materials');
+const api_get_machinings = (req, res, next) => {
+    console.log('api_get_machinings');
 
-    material_model.find({})
+    machining_model.find({})
         .lean()
-        .then(materials => {
-            res.send(JSON.stringify(materials));
+        .then(machinings => {
+            res.send(JSON.stringify(machinings));
         }).catch(err => {
             res.status(500);
             res.send(err.errmsg);
@@ -55,15 +55,15 @@ const api_get_materials = (req, res, next) => {
 
 // UPDATE
 
-//PUT /api/material/5e877016c4bd517bd8ef178a
-const api_put_material = (req, res, next) => {
+//PUT /api/machining/5e877016c4bd517bd8ef178a
+const api_put_machining = (req, res, next) => {
     let id = req.params.id;
-    let data = material_data(req);
+    let data = machining_data(req);
 
-    material_model.findByIdAndUpdate(id, data, {
+    machining_model.findByIdAndUpdate(id, data, {
         new: true
-    }).then((material) => {
-        res.send(material);
+    }).then((machining) => {
+        res.send(machining);
     }).catch(err => {
         res.status(500);
         res.send(err.errmsg);
@@ -74,10 +74,10 @@ const api_put_material = (req, res, next) => {
 
 // DELETE
 
-// DELETE /api/material/5e877016c4bd517bd8ef178a
-const api_delete_material = (req, res, next) => {
+// DELETE /api/machining/5e877016c4bd517bd8ef178a
+const api_delete_machining = (req, res, next) => {
     let id = req.params.id;
-    material_model.findOneAndDelete({
+    machining_model.findOneAndDelete({
         name: id
     }).then(() => {
         res.send();
@@ -87,7 +87,7 @@ const api_delete_material = (req, res, next) => {
         console.log(err);
     });
 
-    // material_model.findByIdAndRemove(id).then(() => {
+    // machining_model.findByIdAndRemove(id).then(() => {
     //     res.send();
     // }).catch(err => {
     //     res.status(500);
@@ -98,7 +98,7 @@ const api_delete_material = (req, res, next) => {
 
 
 // EXPORTS
-module.exports.api_post_material = api_post_material;
-module.exports.api_get_materials = api_get_materials;
-module.exports.api_put_material = api_put_material;
-module.exports.api_delete_material = api_delete_material;
+module.exports.api_post_machining = api_post_machining;
+module.exports.api_get_machinings = api_get_machinings;
+module.exports.api_put_machining = api_put_machining;
+module.exports.api_delete_machining = api_delete_machining;

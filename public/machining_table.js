@@ -13,11 +13,11 @@ $(document).ready(() => {
 
     //let testi = $("#testi");
 
-    let table = $("#materials_table").DataTable({
+    let table = $("#machinings_table").DataTable({
         ajax: {
             type: "GET",
             datatype: "json",
-            url: "/api/materials",
+            url: "/api/machinings",
             dataSrc: ""
         },
         rowId: "_id",
@@ -87,7 +87,7 @@ $(document).ready(() => {
         ],
         onAddRow: (datatable, rowdata, success, error) => {
             $.ajax({
-                url: "/api/material",
+                url: "/api/machining",
                 type: "POST",
                 data: rowdata,
                 success: success,
@@ -96,7 +96,7 @@ $(document).ready(() => {
         },
         onDeleteRow: (datatable, rowdata, success, error) => {
             $.ajax({
-                url: "/api/material/" + rowdata._id,
+                url: "/api/machining/" + rowdata._id,
                 type: "DELETE",
                 data: rowdata,
                 success: success,
@@ -105,7 +105,7 @@ $(document).ready(() => {
         },
         onEditRow: (datatable, rowdata, success, error) => {
             $.ajax({
-                url: "/api/material/" + rowdata._id,
+                url: "/api/machining/" + rowdata._id,
                 type: "PUT",
                 data: rowdata,
                 success: success,

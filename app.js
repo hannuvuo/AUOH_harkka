@@ -6,7 +6,7 @@ const app = express();
 
 const body_parser = require('body-parser');
 
-const material_controller = require('./material_controller');
+const machining_controller = require('./machining_controller');
 
 // npm init
 // npm install express
@@ -17,12 +17,12 @@ const material_controller = require('./material_controller');
 app.use(body_parser.json()); //req.body.name
 app.use(body_parser.urlencoded({
     extended: true
-})); // material/id
+})); // machining/id
 
 app.use((req, res, next) => {
     console.log(req.method, ' ', req.path);
     next();
-}); // GET /api/materials
+}); // GET /api/machinings
 
 //GET /index.html
 app.use("/", express.static('public'));
@@ -31,24 +31,24 @@ app.use("/", express.static('public'));
 // CRUD OPERATIONS
 
 //CREATE
-app.post("/api/material", material_controller.api_post_material);
+app.post("/api/machining", machining_controller.api_post_machining);
 
-//api.domain.com/materials
+//api.domain.com/machinings
 // READ
-app.get("/api/materials", material_controller.api_get_materials);
+app.get("/api/machinings", machining_controller.api_get_machinings);
 
 
 // UPDATE
 //app.patch korvaa vain tietyt kentät
 //app.put korvaa koko tiedon
-app.put("/api/material/:id", material_controller.api_put_material);
+app.put("/api/machining/:id", machining_controller.api_put_machining);
 
 
 // DELETE
-app.delete("/api/material/:id", material_controller.api_delete_material);
+app.delete("/api/machining/:id", machining_controller.api_delete_machining);
 
 
-const database_uri = "mongodb+srv://server:ut32ddfse1efMI2u@cluster0-9vybk.mongodb.net/test?retryWrites=true&w=majority";
+const database_uri = "mongodb+srv://jj:klYn0WubvlN4g5Zl@klusteri-3l5ki.gcp.mongodb.net/test?retryWrites=true&w=majority";
 
 mongoose.connect(database_uri, {
     useCreateIndex: true,
