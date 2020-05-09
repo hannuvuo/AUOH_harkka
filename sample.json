@@ -1,7 +1,6 @@
 {
-    "name": "Steel",
-    "min_density": 1,
-    "max_density": 2,
-    "min_strength": 3,
-    "max_strength": 4
+    "name": "Jyrsin",
+    "material": "S355",
+    "cutting_speed": 100,
+    "feed_rate": 0.25 
 }

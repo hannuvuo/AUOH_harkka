@@ -31,21 +31,21 @@ app.use("/", express.static('public'));
 // CRUD OPERATIONS
 
 //CREATE
-app.post("/api/machining", machining_controller.api_post_machining);
+app.post("/api/machining-parameter-set", machining_controller.api_post_machining);
 
 //api.domain.com/machinings
 // READ
-app.get("/api/machinings", machining_controller.api_get_machinings);
+app.get("/api/machining-parameter-set", machining_controller.api_get_machinings);
 
 
 // UPDATE
 //app.patch korvaa vain tietyt kentät
 //app.put korvaa koko tiedon
-app.put("/api/machining/:id", machining_controller.api_put_machining);
+app.put("/api/machining-parameter-set/:id", machining_controller.api_put_machining);
 
 
 // DELETE
-app.delete("/api/machining/:id", machining_controller.api_delete_machining);
+app.delete("/api/machining-parameter-set/:id", machining_controller.api_delete_machining);
 
 
 const database_uri = "mongodb+srv://jj:klYn0WubvlN4g5Zl@klusteri-3l5ki.gcp.mongodb.net/test?retryWrites=true&w=majority";

@@ -9,15 +9,15 @@ const schema = new Schema({
             unique: true
         }
     },
-    min_density: {
+    Material: {
         type: Number,
         required: true
     },
-    max_density: {
+    cutting_speed: {
         type: Number,
         required: true
     },
-    min_strength: {
+    feed_rate: {
         type: Number,
         required: true
     },
@@ -25,7 +25,7 @@ const schema = new Schema({
         type: Number,
         required: true
     },
-    min_strength_density: {
+    feed_rate_density: {
         type: Number,
         required: true
     },

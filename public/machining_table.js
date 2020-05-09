@@ -2,11 +2,11 @@
 
 // "_id": "5e87764c63e79a85ecf73e49",
 // "name": "Steel_3",
-// "min_density": 685849,
-// "max_density": 1,
-// "min_strength": 333,
+// "Material": 685849,
+// "cutting_speed": 1,
+// "feed_rate": 333,
 // "max_strength": 4,
-// "min_strength_density": 333,
+// "feed_rate_density": 333,
 // "max_strength_density": 0.00000583218755148728,
 
 $(document).ready(() => {
@@ -32,35 +32,21 @@ $(document).ready(() => {
                 required: true
             },
             {
-                data: "min_density",
+                data: "material",
                 type: "float",
                 required: true
             },
             {
-                data: "max_density",
+                data: "cutting_speed",
                 type: "float",
                 required: true
             },
             {
-                data: "min_strength",
+                data: "feed_rate",
                 type: "float",
-                required: true
-            },
-            {
-                data: "max_strength",
-                type: "float",
-                required: true
-            },
-            {
-                data: "min_strength_density",
-                type: "readonly",
-                required: true
-            },
-            {
-                data: "max_strength_density",
-                type: "readonly",
                 required: true
             }
+           
         ],
         dom: "Bfrtip",
         select: "single",
