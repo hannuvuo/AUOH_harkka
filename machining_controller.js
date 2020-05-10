@@ -19,7 +19,7 @@ const machining_data = (req) => {
 
 const api_post_machining = (req, res, next) => {
     console.log('api_post_machining');
-    let data = machining_data(req);
+    let data = machining_data(req);    
 
     let new_machining = machining_model(data);
 

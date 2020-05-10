@@ -14,6 +14,9 @@ const machining_controller = require('./machining_controller');
 // npm install nodemon --save-dev
 // npm run start-dev
 
+//GET /index.html
+app.use("/", express.static('public'));
+
 app.use(body_parser.json()); //req.body.name
 app.use(body_parser.urlencoded({
     extended: true
@@ -24,8 +27,6 @@ app.use((req, res, next) => {
     next();
 }); // GET /api/machinings
 
-//GET /index.html
-app.use("/", express.static('public'));
 
 // RESTful API
 // CRUD OPERATIONS
