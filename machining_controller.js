@@ -6,12 +6,9 @@ const machining_model = require('./machining_model');
 const machining_data = (req) => {
     let data = {
         name: req.body.name,
-        Material: req.body.Material,
+        material: req.body.material,
         cutting_speed: req.body.cutting_speed,
-        feed_rate: req.body.feed_rate,
-        max_strength: req.body.max_strength,
-        feed_rate_density: req.body.feed_rate / req.body.cutting_speed,
-        max_strength_density: req.body.max_strength / req.body.Material
+        feed_rate: req.body.feed_rate
     };
     return data;
 };
