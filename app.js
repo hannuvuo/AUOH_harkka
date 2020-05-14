@@ -12,7 +12,9 @@ const machining_controller = require('./machining_controller');
 // npm install express
 // npm install mongoose
 // npm install nodemon --save-dev
-// npm run start-dev
+// npm install body-parser
+// npm run start-dev (development, auto-restart on save)
+// npm run start
 
 //GET /index.html
 app.use("/", express.static('public'));
